@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Home, Shield, TrendingDown, User, Users as UsersIcon, HeartHandshake } from "lucide-react";
+import homeComfort from "@/assets/home-comfort.jpg";
 
 const beneficios = [
   {
@@ -46,6 +47,14 @@ const Beneficios = () => {
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Por que escolher o cuidado domiciliar humanizado?
             </p>
+          </div>
+
+          <div className="animate-fade-in">
+            <img 
+              src={homeComfort} 
+              alt="Conforto e cuidado humanizado no lar" 
+              className="w-full h-[400px] object-cover rounded-2xl shadow-elegant"
+            />
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

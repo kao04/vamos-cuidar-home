@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Building2, Smile, Activity, Rocket, Zap } from "lucide-react";
+import partnershipImage from "@/assets/partnership.jpg";
 
 const propostas = [
   {
@@ -48,6 +49,14 @@ const PropostaValor = () => {
             <p className="text-xl text-primary-foreground/85 max-w-3xl mx-auto">
               Resultados tangíveis para operadora e beneficiários
             </p>
+          </div>
+
+          <div className="animate-fade-in">
+            <img 
+              src={partnershipImage} 
+              alt="Parceria estratégica em saúde" 
+              className="w-full h-[350px] object-cover rounded-2xl shadow-elegant"
+            />
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
