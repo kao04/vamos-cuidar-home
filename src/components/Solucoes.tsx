@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { FileText, Navigation } from "lucide-react";
 import { CheckCircle2 } from "lucide-react";
+import technologyImage from "@/assets/technology.jpg";
 
 const Solucoes = () => {
   return (
@@ -14,6 +15,14 @@ const Solucoes = () => {
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Prontuário Eletrônico + Enfermeiros Navegadores
             </p>
+          </div>
+
+          <div className="animate-fade-in">
+            <img 
+              src={technologyImage} 
+              alt="Tecnologia em saúde e prontuário eletrônico" 
+              className="w-full h-[400px] object-cover rounded-2xl shadow-elegant"
+            />
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">

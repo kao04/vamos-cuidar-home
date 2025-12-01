@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Award, TrendingUp, Users } from "lucide-react";
+import teamPhoto from "@/assets/team-photo.jpg";
 
 const QuemSomos = () => {
   return (
@@ -13,6 +14,14 @@ const QuemSomos = () => {
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Visão Geral e Experiência
             </p>
+          </div>
+
+          <div className="animate-fade-in">
+            <img 
+              src={teamPhoto} 
+              alt="Nossa equipe multidisciplinar de cuidado domiciliar" 
+              className="w-full h-[400px] object-cover rounded-2xl shadow-elegant"
+            />
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
