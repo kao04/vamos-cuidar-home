@@ -6,10 +6,13 @@ import PropostaValor from "@/components/PropostaValor";
 import Solucoes from "@/components/Solucoes";
 import Contato from "@/components/Contato";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header"; // Importação do novo Header
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    // Adicionado id="root" para o scroll-to-top funcionar e como contêiner principal
+    <div id="root" className="min-h-screen"> 
+      <Header /> 
       <Hero />
       <QuemSomos />
       <Beneficios />

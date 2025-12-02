@@ -1,4 +1,3 @@
-// Conteúdo de vite.config.ts
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
@@ -10,7 +9,7 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  // CORREÇÃO: Adicionamos o caminho base para a subpasta de implantação na Hostinger
+  // CORREÇÃO: Define o caminho base para a subpasta de implantação na Hostinger
   base: "/vamoscuidar/", 
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
