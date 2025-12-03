@@ -8,7 +8,7 @@ import Solucoes from "@/components/Solucoes";
 import Contato from "@/components/Contato";
 import Footer from "@/components/Footer";
 import SejaAssociado from "@/components/SejaAssociado"; // Importação do novo componente
-import { Header } from "@radix-ui/react-accordion";
+import Header from "@/components/Header"; 
 
 const Index = () => {
   return (
