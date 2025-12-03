@@ -33,7 +33,7 @@ const SejaAssociado = () => {
           <div className="pt-8">
             <Button 
               size="lg" 
-              onClick={() => scrollToSection("contato")}
+              
               className={cn(
                 "bg-secondary text-secondary-foreground hover:bg-secondary/90",
                 "shadow-lg shadow-secondary/50 hover:shadow-xl hover:shadow-secondary/60",
@@ -42,6 +42,8 @@ const SejaAssociado = () => {
             >
               <Zap className="w-5 h-5 mr-2" />
               Saiba Como
+
+              <a href="https://maxxagenciadigital.com.br/vamoscuidarassociado/"></a>
             </Button>
           </div>
         </div>
