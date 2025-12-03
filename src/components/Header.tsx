@@ -1,9 +1,8 @@
 // src/components/Header.tsx
-
-// ... (imports)
-import { Button } from "@/components/ui/button"; //
-import { Heart } from "lucide-react"; //
-import { cn } from "@/lib/utils"; //
+import { Button } from "@/components/ui/button";
+import { Heart, Menu } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 
 const navItems = [
   { name: "Quem Somos", id: "quem-somos" },
@@ -11,21 +10,27 @@ const navItems = [
   { name: "Diferenciais", id: "diferenciais" },
   { name: "Proposta", id: "proposta-valor" },
   { name: "Soluções", id: "solucoes" },
-  { name: "Associado", id: "associado" }, // NOVO ITEM ADICIONADO
+  { name: "Associado", id: "associado" }, // Novo item adicionado
   { name: "Contato", id: "contato" },
 ];
 
-// ... (restante do componente Header)
+// Função auxiliar para rolar a página para a seção com smooth behavior
+const scrollToSection = (id: string) => {
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+};
 
-const Header = () => { //
-  // ... (função scrollToSection)
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+const Header = () => {
+  const externalLink = "https://maxxagenciadigital.com.br/vamoscuidarassociado/";
+
+  // Função para navegar e fechar o menu (usada no mobile)
+  const handleScrollAndClose = (id: string) => {
+    scrollToSection(id);
+    // Nota: O SheetClose no JSX se encarregará de fechar, mas a função é mantida
+    // para consistência se você for usar esta lógica em outro lugar.
   };
-// ...
-// ... (restante do componente Header)
+
   return (
-    <header className={cn( //
+    <header className={cn(
       "sticky top-0 z-40 w-full backdrop-blur-md transition-all duration-300",
       "bg-background/90 border-b border-border shadow-md dark:bg-background/80"
     )}>
@@ -40,14 +45,21 @@ const Header = () => { //
           Vamos Cuidar
         </div>
 
-        {/* Links de Navegação Interna (Desktop) */}
+        {/* Links de Navegação Interna (Desktop - Visível apenas em lg+) */}
         <nav className="hidden lg:flex items-center space-x-2">
           {navItems.map((item) => (
             <Button 
               key={item.id} 
               variant="ghost" 
               size="sm" 
-              onClick={() => scrollToSection(item.id)}
+              onClick={() => {
+                // Se for o link do associado, navega externamente
+                if (item.id === 'associado') {
+                  window.open(externalLink, '_blank', 'noopener noreferrer');
+                } else {
+                  scrollToSection(item.id);
+                }
+              }}
               className="text-muted-foreground hover:text-primary"
             >
               {item.name}
@@ -55,17 +67,55 @@ const Header = () => { //
           ))}
         </nav>
         
-        {/* Botão de Contato Separado */}
+        {/* Botão de Contato Separado (Desktop/Tablet) */}
         <Button 
           size="sm" 
           onClick={() => scrollToSection("contato")}
-          className="hidden sm:inline-flex"
+          className="hidden sm:inline-flex lg:mr-0"
         >
           Fale Conosco
         </Button>
+
+        {/* Menu Mobile (Visível em telas pequenas) */}
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button 
+              variant="outline" 
+              size="icon" 
+              className="sm:hidden ml-4"
+              aria-label="Abrir Menu de Navegação"
+            >
+              <Menu className="h-5 w-5" />
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="right" className="w-[250px] sm:w-[300px]">
+            <nav className="flex flex-col space-y-3 pt-6">
+              {navItems.map((item) => {
+                const isExternal = item.id === 'associado';
+                return (
+                  <SheetClose asChild key={item.id}>
+                    <Button
+                      variant={isExternal ? "default" : "ghost"}
+                      className="w-full justify-start"
+                      onClick={() => {
+                        if (isExternal) {
+                          window.open(externalLink, '_blank', 'noopener noreferrer');
+                        } else {
+                          handleScrollAndClose(item.id);
+                        }
+                      }}
+                    >
+                      {item.name}
+                    </Button>
+                  </SheetClose>
+                );
+              })}
+            </nav>
+          </SheetContent>
+        </Sheet>
       </div>
     </header>
   );
 };
 
-export default Header; //
+export default Header;

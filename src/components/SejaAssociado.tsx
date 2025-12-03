@@ -3,8 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// Removendo a função scrollToSection, pois o link é externo.
-
 const SejaAssociado = () => {
   const externalLink = "https://maxxagenciadigital.com.br/vamoscuidarassociado/";
 
@@ -30,7 +28,7 @@ const SejaAssociado = () => {
           </div>
           
           <div className="pt-8">
-            {/* O botão foi envolvido por uma tag <a> com o link externo */}
+            {/* Botão com link externo */}
             <a href={externalLink} target="_blank" rel="noopener noreferrer">
               <Button 
                 size="lg" 

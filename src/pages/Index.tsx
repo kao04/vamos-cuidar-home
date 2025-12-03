@@ -18,7 +18,7 @@ const Index = () => {
       <Diferenciais />
       <PropostaValor />
       <Solucoes />
-      <SejaAssociado /> {/* Adicionado aqui */}
+      <SejaAssociado /> {/* Novo componente adicionado */}
       <Contato />
       <Footer />
     </div>
