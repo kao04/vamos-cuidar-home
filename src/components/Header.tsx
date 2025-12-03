@@ -10,7 +10,7 @@ const navItems = [
   { name: "Diferenciais", id: "diferenciais" },
   { name: "Proposta", id: "proposta-valor" },
   { name: "Soluções", id: "solucoes" },
-  { name: "Associado", id: "associado" }, // Novo item adicionado
+  { name: "Associado", id: "associado" }, // Item adicionado
   { name: "Contato", id: "contato" },
 ];
 
@@ -25,8 +25,6 @@ const Header = () => {
   // Função para navegar e fechar o menu (usada no mobile)
   const handleScrollAndClose = (id: string) => {
     scrollToSection(id);
-    // Nota: O SheetClose no JSX se encarregará de fechar, mas a função é mantida
-    // para consistência se você for usar esta lógica em outro lugar.
   };
 
   return (
@@ -76,13 +74,13 @@ const Header = () => {
           Fale Conosco
         </Button>
 
-        {/* Menu Mobile (Visível em telas pequenas) */}
+        {/* Menu Mobile (Visível em telas pequenas até o breakpoint lg) */}
         <Sheet>
           <SheetTrigger asChild>
             <Button 
               variant="outline" 
               size="icon" 
-              className="sm:hidden ml-4"
+              className="lg:hidden ml-4" // CORREÇÃO AQUI: Fica visível até a tela LG
               aria-label="Abrir Menu de Navegação"
             >
               <Menu className="h-5 w-5" />
