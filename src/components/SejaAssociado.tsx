@@ -3,12 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// Função auxiliar para rolar a página para a seção de contato
-const scrollToSection = (id: string) => {
-  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-};
+// Removendo a função scrollToSection, pois o link é externo.
 
 const SejaAssociado = () => {
+  const externalLink = "https://maxxagenciadigital.com.br/vamoscuidarassociado/";
+
   return (
     <section id="associado" className="py-20 sm:py-28 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -31,20 +30,20 @@ const SejaAssociado = () => {
           </div>
           
           <div className="pt-8">
-            <Button 
-              size="lg" 
-              
-              className={cn(
-                "bg-secondary text-secondary-foreground hover:bg-secondary/90",
-                "shadow-lg shadow-secondary/50 hover:shadow-xl hover:shadow-secondary/60",
-                "transition-all duration-300 transform hover:scale-[1.02] text-lg px-10"
-              )}
-            >
-              <Zap className="w-5 h-5 mr-2" />
-              Saiba Como
-
-              <a href="https://maxxagenciadigital.com.br/vamoscuidarassociado/"></a>
-            </Button>
+            {/* O botão foi envolvido por uma tag <a> com o link externo */}
+            <a href={externalLink} target="_blank" rel="noopener noreferrer">
+              <Button 
+                size="lg" 
+                className={cn(
+                  "bg-secondary text-secondary-foreground hover:bg-secondary/90",
+                  "shadow-lg shadow-secondary/50 hover:shadow-xl hover:shadow-secondary/60",
+                  "transition-all duration-300 transform hover:scale-[1.02] text-lg px-10"
+                )}
+              >
+                <Zap className="w-5 h-5 mr-2" />
+                Saiba Como
+              </Button>
+            </a>
           </div>
         </div>
       </div>
