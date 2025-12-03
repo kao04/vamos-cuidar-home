@@ -1,6 +1,9 @@
-import { Button } from "@/components/ui/button";
-import { Heart } from "lucide-react";
-import { cn } from "@/lib/utils";
+// src/components/Header.tsx
+
+// ... (imports)
+import { Button } from "@/components/ui/button"; //
+import { Heart } from "lucide-react"; //
+import { cn } from "@/lib/utils"; //
 
 const navItems = [
   { name: "Quem Somos", id: "quem-somos" },
@@ -8,17 +11,21 @@ const navItems = [
   { name: "Diferenciais", id: "diferenciais" },
   { name: "Proposta", id: "proposta-valor" },
   { name: "Soluções", id: "solucoes" },
+  { name: "Associado", id: "associado" }, // NOVO ITEM ADICIONADO
   { name: "Contato", id: "contato" },
 ];
 
-// Função auxiliar para rolar a página para a seção com smooth behavior
-const scrollToSection = (id: string) => {
-  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-};
+// ... (restante do componente Header)
 
-const Header = () => {
+const Header = () => { //
+  // ... (função scrollToSection)
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+// ...
+// ... (restante do componente Header)
   return (
-    <header className={cn(
+    <header className={cn( //
       "sticky top-0 z-40 w-full backdrop-blur-md transition-all duration-300",
       "bg-background/90 border-b border-border shadow-md dark:bg-background/80"
     )}>
@@ -61,4 +68,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Header; //

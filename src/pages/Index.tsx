@@ -1,3 +1,4 @@
+// src/pages/Index.tsx
 import Hero from "@/components/Hero";
 import QuemSomos from "@/components/QuemSomos";
 import Beneficios from "@/components/Beneficios";
@@ -6,19 +7,18 @@ import PropostaValor from "@/components/PropostaValor";
 import Solucoes from "@/components/Solucoes";
 import Contato from "@/components/Contato";
 import Footer from "@/components/Footer";
-import Header from "@/components/Header"; // Importação do novo Header
+import SejaAssociado from "@/components/SejaAssociado"; // Importação do novo componente
 
 const Index = () => {
   return (
-    // Adicionado id="root" para o scroll-to-top funcionar e como contêiner principal
-    <div id="root" className="min-h-screen"> 
-      <Header /> 
+    <div className="min-h-screen">
       <Hero />
       <QuemSomos />
       <Beneficios />
       <Diferenciais />
       <PropostaValor />
       <Solucoes />
+      <SejaAssociado /> {/* Adicionado aqui */}
       <Contato />
       <Footer />
     </div>
